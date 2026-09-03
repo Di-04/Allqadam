@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALL QADAM — Адаптационный сайт молодых специалистов</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- QRCode.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandViolet: '#AB00C0',
+            brandPurple: '#D500FF',
+            brandGold: '#DFBD69',
+            brandGoldHover: '#EAD189',
+            darkBg: '#0B0914',
+            darkCard: '#151226',
+            darkBorder: '#272242'
+          },
+          fontFamily: {
+            manrope: ['Manrope', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #0B0914;
+      color: #E2E8F0;
+      overflow-x: hidden;
+    }
+
+    /* Gradient Backgrounds & Texts */
+    .text-gradient-gold-purple {
+      background: linear-gradient(135deg, #DFBD69 0%, #D500FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #FFF0C3 0%, #DFBD69 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-gradient-purple-gold {
+      background: linear-gradient(135deg, #AB00C0 0%, #D500FF 50%, #DFBD69 100%);
+    }
+
+    .glass-card {
+      background: rgba(21, 18, 38, 0.75);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(223, 189, 105, 0.18);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(213, 0, 255, 0.45);
+      box-shadow: 0 10px 30px -10px rgba(171, 0, 192, 0.35);
+    }
+
+    /* Font Manrope Extra-light for Slogan */
+    .motto-font {
+      font-weight: 200;
+      letter-spacing: 0.05em;
+    }
+
+    /* Glow Effects */
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(223, 189, 105, 0.25);
+    }
+
+    .purple-glow {
+      box-shadow: 0 0 25px rgba(213, 0, 255, 0.25);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0914;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272242;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #AB00C0;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brandPurple selection:text-white">
+
+  <!-- TOP BAR & NAVIGATION -->
+  <header class="sticky top-0 z-50 glass-card border-b border-white/10 bg-opacity-90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Branding -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandViolet via-brandPurple to-brandGold p-0.5 flex items-center justify-center shadow-lg gold-glow group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center">
+            <i class="fa-solid fa-person-walking text-brandGold text-xl"></i>
+          </div>
+        </div>
+        <div>
+          <span class="text-2xl font-extrabold tracking-wider text-gradient-gold">ALL QADAM</span>
+          <span class="block text-[10px] text-purple-300/70 tracking-widest uppercase">Teachers Support Platform</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider">
+        <a href="#about" class="hover:text-brandGold transition-colors" id="nav-about">О нас</a>
+        <a href="#values" class="hover:text-brandGold transition-colors" id="nav-values">Ценности</a>
+        <a href="#cabinets" class="hover:text-brandGold transition-colors" id="nav-cabinets">Чек-лист</a>
+        <a href="#base" class="hover:text-brandGold transition-colors" id="nav-base">База</a>
+        <a href="#events" class="hover:text-brandGold transition-colors" id="nav-events">Іс-шаралар</a>
+        <a href="#nqa" class="hover:text-brandGold transition-colors" id="nav-nqa">НҚА</a>
+        <a href="#history" class="hover:text-brandGold transition-colors" id="nav-history">Тарих & Чат</a>
+        <a href="#burnout-test" class="hover:text-brandGold transition-colors" id="nav-test">Тест</a>
+      </nav>
+
+      <!-- Language Selector Switcher -->
+      <div class="flex items-center gap-2 bg-darkCard p-1 rounded-full border border-brandGold/30">
+        <button id="lang-kz-btn" onclick="setLanguage('kz')" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300">
+          KZ
+        </button>
+        <button id="lang-rus-btn" onclick="setLanguage('rus')" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300">
+          RUS
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- HERO SECTION WITH DYNAMIC ANIMATED LOGO CANVAS -->
+    <section class="relative py-12 lg:py-16 overflow-hidden border-b border-darkBorder">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,#2b083b_0%,transparent_75%)] opacity-60"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        
+        <!-- Animated Walking Logo Canvas Container -->
+        <div class="flex flex-col items-center justify-center my-2">
+          <div class="relative w-full max-w-3xl h-52 sm:h-64 glass-card rounded-2xl overflow-hidden p-2 flex items-center justify-center border-brandGold/40 shadow-2xl">
+            <canvas id="logoCanvas" class="w-full h-full cursor-pointer" title="Нажмите для смены скорости шага"></canvas>
+            <div class="absolute bottom-2 right-4 text-[11px] text-gray-400 opacity-70 flex items-center gap-1.5 bg-darkCard/80 px-2.5 py-1 rounded-full border border-white/10">
+              <i class="fa-solid fa-sparkles text-brandGold"></i> Интерактивті логотип / Анимация
+            </div>
+          </div>
+        </div>
+
+        <!-- MOTTO / SLOGAN WITH MANROPE EXTRA-LIGHT FONT -->
+        <div class="mt-8 mb-6">
+          <h2 id="hero-motto" class="text-3xl sm:text-5xl lg:text-6xl motto-font text-gradient-gold-purple drop-shadow-md transition-all duration-500">
+            От первого шага - к уверенности.
+          </h2>
+          <div class="w-32 h-1 bg-gradient-to-r from-brandPurple to-brandGold mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- HERO SUBTITLE & ACTION BUTTONS -->
+        <p id="hero-subtitle" class="max-w-2xl mx-auto text-lg text-gray-300 font-light leading-relaxed">
+          Первый шаг. Новые возможности. Большое профессиональное будущее.
+        </p>
+
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="#cabinets" class="px-8 py-3.5 rounded-xl font-bold bg-gradient-to-r from-brandPurple to-brandViolet hover:from-brandPurple hover:to-brandGold text-white shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-2">
+            <i class="fa-solid fa-list-check"></i> <span id="hero-btn-checklist">Начать адаптацию</span>
+          </a>
+          <a href="https://www.instagram.com/allqadam_kma?igsi=MWZnNnVmaXV6OHNreQ==" target="_blank" class="px-8 py-3.5 rounded-xl font-bold glass-card text-brandGold hover:bg-brandGold/10 transition-all duration-300 border border-brandGold/40 flex items-center gap-2">
+            <i class="fa-brands fa-instagram text-xl"></i> Instagram @allqadam_kma
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1-PAGE SECTION: ABOUT & MISSION -->
+    <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- About Text Left Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brandPurple/10 border border-brandPurple/30 text-brandPurple text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-compass"></i> <span id="about-badge">О сообществе</span>
+          </div>
+
+          <h3 id="about-title" class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            ALL QADAM — пространство для роста и поддержки молодых педагогов
+          </h3>
+
+          <p id="about-desc" class="text-gray-300 leading-relaxed text-base sm:text-lg">
+            ALL QADAM — это пространство для молодых специалистов, где можно учиться, пробовать, создавать и расти вместе без страха профессионального выгорания.
+          </p>
+
+          <!-- Mission Box -->
+          <div class="p-6 rounded-2xl glass-card border-l-4 border-l-brandGold relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-brandGold text-9xl font-black">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h4 id="mission-heading" class="text-lg font-bold text-brandGold mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-flag"></i> Наша миссия
+            </h4>
+            <p id="mission-text" class="text-gray-200 text-sm sm:text-base leading-relaxed">
+              Создать среду, в которой молодой специалист получает не только знания, но и поддержку, возможности для практики и пространство для реализации своих идей.
+            </p>
+          </div>
+
+          <!-- Social Media Follow Callout with Instagram Photo -->
+          <div class="p-5 rounded-2xl bg-darkCard border border-brandPurple/30 flex flex-col sm:flex-row items-center gap-4">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-brandGold/40 p-1 bg-gradient-purple-gold">
+              <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=300&q=80" alt="Instagram ALL QADAM" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow text-center sm:text-left">
+              <h5 class="text-white font-bold text-sm" id="insta-heading">Мы в Instagram</h5>
+              <p class="text-xs text-gray-400 mt-1" id="insta-text">Біз жайында толық ақпаратты инстаграмнан да көре аласыздар</p>
+              <a href="https://www.instagram.com/allqadam_kma?igsi=MWZnNnVmaXV6OHNreQ==" target="_blank" class="inline-block mt-2 text-xs font-bold text-brandGold hover:underline">
+                @allqadam_kma <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Pillars Cards Right Column -->
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <!-- Pillar 1 -->
+          <div class="glass-card p-5 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-brandPurple/40 flex items-center justify-center text-2xl text-purple-400">
+              📚
+            </div>
+            <h5 id="pillar1-title" class="font-bold text-white text-lg">Знания</h5>
+            <p id="pillar1-desc" class="text-xs text-gray-400 leading-relaxed">
+              Обучение, методические материалы и полезные инструменты для ежедневной работы.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="glass-card p-5 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-yellow-950/80 border border-brandGold/40 flex items-center justify-center text-2xl text-brandGold">
+              🤝
+            </div>
+            <h5 id="pillar2-title" class="font-bold text-white text-lg">Сообщество</h5>
+            <p id="pillar2-desc" class="text-xs text-gray-400 leading-relaxed">
+              Единомышленники, опытные наставники и надёжные профессиональные связи.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="glass-card p-5 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-brandPurple/40 flex items-center justify-center text-2xl text-purple-400">
+              🚀
+            </div>
+            <h5 id="pillar3-title" class="font-bold text-white text-lg">Возможности</h5>
+            <p id="pillar3-desc" class="text-xs text-gray-400 leading-relaxed">
+              Проекты, конкурсы, мероприятия и новые направления для карьерного роста.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="glass-card p-5 rounded-2xl space-y-3 transition-transform duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-yellow-950/80 border border-brandGold/40 flex items-center justify-center text-2xl text-brandGold">
+              💡
+            </div>
+            <h5 id="pillar4-title" class="font-bold text-white text-lg">Идеи</h5>
+            <p id="pillar4-desc" class="text-xs text-gray-400 leading-relaxed">
+              Пространство, где твою инициативу можно легко превратить в реальный проект.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Quote Callout Banner -->
+      <div class="mt-12 p-8 rounded-3xl bg-gradient-to-r from-brandViolet/20 via-darkCard to-brandGold/10 border border-white/10 text-center relative">
+        <p id="callout-quote" class="text-xl sm:text-2xl font-light text-gradient-gold italic">
+          «Не просто начинай. Начинай с ALL QADAM. Каждый шаг — новые возможности.»
+        </p>
+      </div>
+    </section>
+
+    <!-- 2-PAGE SECTION: VALUES & KEY DIRECTIONS -->
+    <section id="values" class="py-16 bg-darkCard/40 border-y border-darkBorder">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <!-- Values Subsection -->
+        <div>
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <h3 id="values-main-title" class="text-3xl font-extrabold text-white">
+              Наши ценности
+            </h3>
+            <p id="values-subtitle" class="text-gray-400 text-sm mt-2">
+              Принципы, которые объединяют наше педагогическое сообщество
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <!-- Value 1 -->
+            <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-brandPurple">
+              <i class="fa-solid fa-chart-line text-2xl text-brandPurple mb-3"></i>
+              <h5 id="val1-t" class="font-bold text-white mb-1">Развитие</h5>
+              <p id="val1-d" class="text-xs text-gray-400">Мы постоянно учимся и совершенствуемся.</p>
+            </div>
+            <!-- Value 2 -->
+            <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-brandGold">
+              <i class="fa-solid fa-handshake-angle text-2xl text-brandGold mb-3"></i>
+              <h5 id="val2-t" class="font-bold text-white mb-1">Поддержка</h5>
+              <p id="val2-d" class="text-xs text-gray-400">Мы развиваемся вместе, а не поодиночке.</p>
+            </div>
+            <!-- Value 3 -->
+            <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-brandPurple">
+              <i class="fa-solid fa-lightbulb text-2xl text-brandPurple mb-3"></i>
+              <h5 id="val3-t" class="font-bold text-white mb-1">Инициатива</h5>
+              <p id="val3-d" class="text-xs text-gray-400">Превращаем свежие идеи в реальные проекты.</p>
+            </div>
+            <!-- Value 4 -->
+            <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-brandGold">
+              <i class="fa-solid fa-door-open text-2xl text-brandGold mb-3"></i>
+              <h5 id="val4-t" class="font-bold text-white mb-1">Открытость</h5>
+              <p id="val4-d" class="text-xs text-gray-400">Свободно делимся опытом и знаниями.</p>
+            </div>
+            <!-- Value 5 -->
+            <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-brandPurple">
+              <i class="fa-solid fa-people-group text-2xl text-brandPurple mb-3"></i>
+              <h5 id="val5-t" class="font-bold text-white mb-1">Сотрудничество</h5>
+              <p id="val5-d" class="text-xs text-gray-400">Объединяем людей для новых возможностей.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Directions Subsection -->
+        <div>
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <h3 id="directions-main-title" class="text-3xl font-extrabold text-white">
+              Основные направления
+            </h3>
+            <p id="directions-subtitle" class="text-gray-400 text-sm mt-2">
+              Как мы помогаем педагогу развиваться профессионально
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Dir 1 -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+              <div class="w-14 h-14 rounded-2xl bg-brandPurple/20 text-brandPurple flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <h4 id="dir1-t" class="text-xl font-bold text-white mb-2">Профессиональное развитие</h4>
+              <p id="dir1-d" class="text-sm text-gray-300 leading-relaxed">
+                Курсы, мастер-классы, тренинги, вебинары и практические ресурсы для уверенного старта в школе.
+              </p>
+            </div>
+            <!-- Dir 2 -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+              <div class="w-14 h-14 rounded-2xl bg-brandGold/20 text-brandGold flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <h4 id="dir2-t" class="text-xl font-bold text-white mb-2">Наставничество</h4>
+              <p id="dir2-d" class="text-sm text-gray-300 leading-relaxed">
+                Поддержка опытных коллег, индивидуальные консультации и сопровождение в период адаптации.
+              </p>
+            </div>
+            <!-- Dir 3 -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+              <div class="w-14 h-14 rounded-2xl bg-brandPurple/20 text-brandPurple flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+              <h4 id="dir3-t" class="text-xl font-bold text-white mb-2">Проектная работа</h4>
+              <p id="dir3-d" class="text-sm text-gray-300 leading-relaxed">
+                Разработка и реализация личных образовательных, социальных и творческих инициатив.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3-PAGE SECTION: INTERACTIVE CHECKLIST & CABINET NAVIGATOR -->
+    <section id="cabinets" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandGold/10 border border-brandGold/30 text-brandGold text-xs font-bold uppercase mb-2">
+            <i class="fa-solid fa-location-dot"></i> <span id="cab-badge">Маршрут первого дня</span>
+          </div>
+          <h3 id="cab-title" class="text-3xl font-extrabold text-white">
+            Кабинеты и Адаптационный Чек-лист
+          </h3>
+          <p id="cab-subtitle" class="text-gray-400 text-sm mt-1">
+            Отмечайте выполненные действия по мере прохождения инстанций в школе
+          </p>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="glass-card px-5 py-3 rounded-2xl flex items-center gap-4 border-brandPurple/40">
+          <div>
+            <div class="text-xs text-gray-400" id="progress-label">Прогресс адаптации</div>
+            <div class="text-lg font-bold text-brandGold" id="progress-text">0 из 8 (0%)</div>
+          </div>
+          <div class="w-28 bg-gray-800 h-3 rounded-full overflow-hidden border border-gray-700">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-brandPurple to-brandGold w-0 transition-all duration-500"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist Table Responsive Card List -->
+      <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-darkCard/90 text-brandGold text-xs uppercase tracking-wider border-b border-darkBorder">
+                <th class="p-4 w-12 text-center">✓</th>
+                <th class="p-4 w-12">№</th>
+                <th class="p-4" id="th-action">Шаг / Действие</th>
+                <th class="p-4" id="th-responsible">Ответственное лицо / Кабинет</th>
+                <th class="p-4" id="th-links">Полезные ссылки</th>
+              </tr>
+            </thead>
+            <tbody id="checklist-tbody" class="divide-y divide-darkBorder text-sm text-gray-300">
+              <!-- JS dynamic rows rendered here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-PAGE SECTION: BASE OF YOUNG SPECIALIST (TEMPLATES & GOOGLE DOCS) -->
+    <section id="base" class="py-16 bg-darkCard/30 border-t border-darkBorder">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandPurple/10 border border-brandPurple/30 text-brandPurple text-xs font-bold uppercase">
+            <i class="fa-solid fa-folder-open"></i> <span id="base-badge">Методический багаж</span>
+          </div>
+          <h3 id="base-title" class="text-3xl font-extrabold text-white">
+            База молодого специалиста
+          </h3>
+          <p id="base-desc" class="text-gray-300 text-sm sm:text-base">
+            Раздел с практическими материалами, шаблонами и документами, которые можно сразу скачивать и использовать в ежедневной работе учителя.
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-md mx-auto">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400"></i>
+            <input type="text" id="doc-search-input" onkeyup="filterDocs()" placeholder="Поиск по документам..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-darkCard border border-brandGold/30 text-white placeholder-gray-500 focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple text-sm">
+          </div>
+        </div>
+
+        <!-- Documents Grid -->
+        <div id="docs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- JS Dynamic Docs Grid -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5-PAGE SECTION: SCHOOL EVENTS & BINOM JAS NETWORK SCHEDULE -->
+    <section id="events" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandGold/10 border border-brandGold/30 text-brandGold text-xs font-bold uppercase">
+          <i class="fa-solid fa-calendar-days"></i> <span id="events-badge">Мектеп өмірі</span>
+        </div>
+        <h3 id="events-main-title" class="text-3xl font-extrabold text-white">
+          Мектебіміздің іс-шаралары мен конкурстар тізімі
+        </h3>
+        <p id="events-subtitle" class="text-gray-400 text-sm">
+          Педагогикалық ұжымның негізгі дәстүрлі шаралары мен кәсіби даму жоспары
+        </p>
+      </div>
+
+      <!-- General School Events Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4">
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandPurple">
+          <i class="fa-solid fa-chalkboard-user text-xl text-brandPurple mb-2"></i>
+          <h5 id="e1-t" class="font-bold text-white text-xs sm:text-sm">Педагогикалық кеңес / Педсовет</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandGold">
+          <i class="fa-solid fa-award text-xl text-brandGold mb-2"></i>
+          <h5 id="e2-t" class="font-bold text-white text-xs sm:text-sm">Посвящение молодых специалистов</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandPurple">
+          <i class="fa-solid fa-brain text-xl text-brandPurple mb-2"></i>
+          <h5 id="e3-t" class="font-bold text-white text-xs sm:text-sm">Zerdeli орталығы</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandGold">
+          <i class="fa-solid fa-heart text-xl text-brandGold mb-2"></i>
+          <h5 id="e4-t" class="font-bold text-white text-xs sm:text-sm">Ұстаздар күні / День учителя</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandPurple">
+          <i class="fa-solid fa-trophy text-xl text-brandPurple mb-2"></i>
+          <h5 id="e5-t" class="font-bold text-white text-xs sm:text-sm">Олимпиадалар (Барлық деңгей)</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandGold">
+          <i class="fa-solid fa-microphone text-xl text-brandGold mb-2"></i>
+          <h5 id="e6-t" class="font-bold text-white text-xs sm:text-sm">Ғылыми конференциялар</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandPurple">
+          <i class="fa-solid fa-cake-candles text-xl text-brandPurple mb-2"></i>
+          <h5 id="e7-t" class="font-bold text-white text-xs sm:text-sm">Мектептің 5-жылдығы</h5>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center border-l-4 border-l-brandGold">
+          <i class="fa-solid fa-face-laugh-beam text-xl text-brandGold mb-2"></i>
+          <h5 id="e8-t" class="font-bold text-white text-xs sm:text-sm">StandUp (Көктемде)</h5>
+        </div>
+      </div>
+
+      <!-- BINOM JAS Table Title -->
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-brandPurple/30 via-darkCard to-brandGold/20 border border-brandGold/40 text-center">
+        <h4 class="text-2xl font-black text-gradient-gold uppercase tracking-wider">
+          BINOM JAS – Жас педагогтер желісінің жылдық жоспары
+        </h4>
+      </div>
+
+      <!-- BINOM JAS Schedule Table -->
+      <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-darkCard/90 text-brandGold text-xs uppercase tracking-wider border-b border-darkBorder">
+                <th class="p-4 w-12 text-center">№</th>
+                <th class="p-4" id="th-jas-content">Мазмұны / Мероприятие</th>
+                <th class="p-4 w-28" id="th-jas-date">Мерзімі</th>
+                <th class="p-4" id="th-jas-location">Өтетін орны</th>
+                <th class="p-4" id="th-jas-resp">Жауаптылар</th>
+              </tr>
+            </thead>
+            <tbody id="jas-tbody" class="divide-y divide-darkBorder text-gray-300">
+              <!-- JS Dynamic BINOM JAS Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 6-PAGE SECTION: REGULATORY LEGAL ACTS (НҚА ТІЗБЕСІ) -->
+    <section id="nqa" class="py-16 bg-darkCard/40 border-t border-darkBorder">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandPurple/10 border border-brandPurple/30 text-brandPurple text-xs font-bold uppercase">
+            <i class="fa-solid fa-scale-balanced"></i> <span id="nqa-badge">Заңнамалық база</span>
+          </div>
+          <h3 id="nqa-title" class="text-3xl font-extrabold text-white">
+            Нормативтік құқықтық актілер (НҚА) тізбесі
+          </h3>
+          <p id="nqa-desc" class="text-gray-300 text-sm">
+            Мұғалім жұмысына қажетті негізгі заңдар, қаулылар мен мемлекеттік тұжырымдамалар
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="bg-darkCard/90 text-brandGold text-xs uppercase tracking-wider border-b border-darkBorder">
+                  <th class="p-4 w-12 text-center">№</th>
+                  <th class="p-4" id="th-nqa-doc">Нормативтік құжат атауы</th>
+                  <th class="p-4 w-40 text-center" id="th-nqa-link">Ресми сілтеме</th>
+                </tr>
+              </thead>
+              <tbody id="nqa-tbody" class="divide-y divide-darkBorder text-gray-300">
+                <!-- JS Dynamic NQA Rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7-PAGE SECTION: COMMUNITY HISTORY & KMA LEADERS WHATSAPP GROUP -->
+    <section id="history" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandGold/10 border border-brandGold/30 text-brandGold text-xs font-bold uppercase">
+          <i class="fa-solid fa-clock-rotate-left"></i> <span id="history-badge">Тарих пен байланыс</span>
+        </div>
+        <h3 id="history-title" class="text-3xl font-extrabold text-white">
+          Тарихымыздың бөлшегіне айналған сәттер
+        </h3>
+        <p id="history-desc" class="text-gray-300 text-sm">
+          КМА жетекшілері тобына қосылып, қауымдастықтың даму тарихына өз үлесіңізді қосыңыз
+        </p>
+      </div>
+
+      <!-- KMA WhatsApp Join Box with QR Code Generator -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-8 rounded-3xl border border-brandPurple/40">
+        <div class="lg:col-span-7 space-y-4">
+          <span class="px-3 py-1 rounded-md bg-green-500/20 text-green-400 font-mono text-xs font-bold uppercase border border-green-500/30">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Group
+          </span>
+          <h4 id="kma-group-title" class="text-2xl font-bold text-white">
+            КМА Жетекшілері чатына қосылыңыз
+          </h4>
+          <p id="kma-group-desc" class="text-sm text-gray-300 leading-relaxed">
+            Сперва вы должны добавится в группу с руководителями КМА. Мұнда жетекшілермен жедел байланыс, тәжірибе алмасу және маңызды хабарландырулар жарияланады.
+          </p>
+          <a href="https://chat.whatsapp.com/CtinnmRHQ1eHTuy3nUhzlh?s=cl&p=i&mlu=4" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-sm transition-all shadow-lg hover:scale-105">
+            <i class="fa-brands fa-whatsapp text-lg"></i> <span id="kma-btn-text">WhatsApp чатқа өту</span>
+          </a>
+        </div>
+
+        <!-- QR Code Container Column -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-darkCard rounded-2xl border border-darkBorder">
+          <div id="qrcode" class="p-3 bg-white rounded-xl shadow-lg"></div>
+          <p class="text-xs text-gray-400 mt-3 text-center" id="qr-caption">Сканируйте QR-код для входа в чат КМА</p>
+        </div>
+      </div>
+
+      <!-- Photo Gallery Section -->
+      <div class="space-y-4">
+        <h4 id="gallery-heading" class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-images text-brandGold"></i> Фотогалерея іс-шараларымыз
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="glass-card rounded-2xl overflow-hidden group">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Welcome Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent opacity-80"></div>
+              <span class="absolute bottom-3 left-3 text-xs font-bold text-white bg-brandPurple/80 px-2.5 py-1 rounded-md">Welcome Day</span>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl overflow-hidden group">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Training 4K" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent opacity-80"></div>
+              <span class="absolute bottom-3 left-3 text-xs font-bold text-white bg-brandGold/80 px-2.5 py-1 rounded-md text-darkBg">4K Тренинг</span>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl overflow-hidden group">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80" alt="Forum Level UP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent opacity-80"></div>
+              <span class="absolute bottom-3 left-3 text-xs font-bold text-white bg-brandViolet/80 px-2.5 py-1 rounded-md">Level UP Форум</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ANTI-BURNOUT TEST WIDGET SECTION -->
+    <section id="burnout-test" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card p-6 sm:p-8 rounded-3xl border border-brandPurple/40 shadow-2xl relative">
+        <div class="text-center space-y-3 mb-8">
+          <div class="inline-block p-3 rounded-2xl bg-brandPurple/20 text-brandPurple text-2xl">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h3 id="test-heading" class="text-2xl sm:text-3xl font-bold text-white">
+            Экспресс-тест: Эмоциональный баланс
+          </h3>
+          <p id="test-subheading" class="text-xs sm:text-sm text-gray-400">
+            Оцените свое состояние за 1 минуту и получите рекомендацию от ALL QADAM
+          </p>
+        </div>
+
+        <div id="quiz-container" class="space-y-6">
+          <!-- Quiz Questions inserted dynamically -->
+        </div>
+
+        <div id="quiz-result" class="hidden mt-6 p-6 rounded-2xl bg-darkCard border border-brandGold/40 text-center space-y-4">
+          <div id="result-icon" class="text-4xl">🧘‍♂️</div>
+          <h4 id="result-title" class="text-xl font-bold text-white"></h4>
+          <p id="result-desc" class="text-sm text-gray-300 leading-relaxed max-w-xl mx-auto"></p>
+          <button onclick="resetQuiz()" class="px-6 py-2.5 rounded-xl bg-brandPurple text-white text-xs font-bold uppercase tracking-wider hover:bg-brandViolet transition-all">
+            Пройти снова
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-darkCard border-t border-darkBorder py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-xl font-bold text-gradient-gold">ALL QADAM</span>
+        <span class="text-xs text-gray-500">© 2026 Адаптационная платформа педагогов</span>
+      </div>
+      
+      <div class="flex items-center gap-6">
+        <a href="https://www.instagram.com/allqadam_kma?igsi=MWZnNnVmaXV6OHNreQ==" target="_blank" class="text-gray-400 hover:text-brandGold transition-colors text-lg" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb85PgyLCoWw4IV2ZD1Z" target="_blank" class="text-gray-400 hover:text-brandGold transition-colors text-lg" title="WhatsApp Channel">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    /* ==========================================
+       DATA DICTIONARY (KZ / RUS)
+       ========================================== */
+    const translations = {
+      rus: {
+        navAbout: "О нас",
+        navValues: "Ценности",
+        navCabinets: "Чек-лист",
+        navBase: "База",
+        navEvents: "Іс-шаралар",
+        navNqa: "НҚА",
+        navHistory: "Тарих & Чат",
+        navTest: "Тест",
+        
+        motto: "От первого шага - к уверенности.",
+        subtitle: "Первый шаг. Новые возможности. Большое профессиональное будущее.",
+        btnChecklist: "Начать адаптацию",
+
+        aboutBadge: "О сообществе",
+        aboutTitle: "ALL QADAM — пространство для роста и поддержки молодых педагогов",
+        aboutDesc: "ALL QADAM — это пространство для молодых специалистов, где можно учиться, пробовать, создавать и расти вместе.",
+        missionHeading: "Наша миссия",
+        missionText: "Создать среду, в которой молодой специалист получает не только знания, но и поддержку, возможности для практики и пространство для реализации своих идей.",
+        instaHeading: "Мы в Instagram",
+        instaText: "Полную информацию о нашем сообществе можно найти на нашей странице в Instagram",
+
+        pillar1Title: "Знания", pillar1Desc: "Обучение, методические материалы и полезные инструменты.",
+        pillar2Title: "Сообщество", pillar2Desc: "Единомышленники, наставники и профессиональные связи.",
+        pillar3Title: "Возможности", pillar3Desc: "Проекты, конкурсы, мероприятия и направления для роста.",
+        pillar4Title: "Идеи", pillar4Desc: "Пространство, где твою инициативу можно превратить в реальный проект.",
+        quote: "«Не просто начинай. Начинай с ALL QADAM. Каждый шаг — новые возможности.»",
+        
+        valuesMainTitle: "Наши ценности",
+        valuesSubtitle: "Принципы, которые объединяют наше педагогическое сообщество",
+        val1t: "Развитие", val1d: "Мы постоянно учимся и совершенствуемся.",
+        val2t: "Поддержка", val2d: "Мы развиваемся вместе, а не поодиночке.",
+        val3t: "Инициатива", val3d: "Превращаем идеи в реальные проекты.",
+        val4t: "Открытость", val4d: "Свободно делимся опытом и знаниями.",
+        val5t: "Сотрудничество", val5d: "Объединяем людей для новых возможностей.",
+
+        directionsMainTitle: "Основные направления",
+        directionsSubtitle: "Как мы помогаем педагогу развиваться профессионально",
+        dir1t: "Кәсіби даму / Проф. развитие", dir1d: "Курсы, мастер-классы, тренинги, вебинары и практические ресурсы.",
+        dir2t: "Тәлімгерлік / Наставничество", dir2d: "Поддержка опытных коллег и профессиональных наставников.",
+        dir3t: "Жобалық жұмыс / Проектная работа", dir3d: "Разработка и реализация личных образовательных и социальных проектов.",
+
+        cabBadge: "Маршрут первого дня",
+        cabTitle: "Кабинеты и Адаптационный Чек-лист",
+        cabSubtitle: "Отмечайте выполненные действия по мере прохождения инстанций в школе",
+        thAction: "Шаг / Действие",
+        thResponsible: "Ответственное лицо / Кабинет",
+        thLinks: "Полезные ссылки",
+
+        baseBadge: "Методический багаж",
+        baseTitle: "База молодого специалиста",
+        baseDesc: "Раздел с практическими материалами, шаблонами и документами, которые можно использовать в ежедневной работе.",
+        searchPlaceholder: "Поиск по документам...",
+
+        eventsBadge: "Школьная жизнь",
+        eventsMainTitle: "Список мероприятий и конкурсов нашей школы",
+        eventsSubtitle: "Основные традиционные события педагогического коллектива и календарь BINOM JAS",
+        thJasContent: "Содержание / Мероприятие",
+        thJasDate: "Сроки",
+        thJasLocation: "Место проведения",
+        thJasResp: "Ответственные",
+
+        nqaBadge: "Законодательная база",
+        nqaTitle: "Перечень нормативных правовых актов (НПА)",
+        nqaDesc: "Основные законы, постановления и концепции для работы учителя",
+        thNqaDoc: "Наименование нормативного документа",
+        thNqaLink: "Официальная ссылка",
+
+        historyBadge: "История и связь",
+        historyTitle: "Мероприятия, ставшие частью нашей истории",
+        historyDesc: "Вступайте в группу руководителей КМА и участвуйте в развитии сообщества",
+        kmaGroupTitle: "Вступайте в чат руководителей КМА",
+        kmaGroupDesc: "Сперва вы должны добавится в группу с руководителями КМА. Здесь публикуются оперативные объявления, обмен опытом и координация.",
+        kmaBtnText: "Перейти в WhatsApp чат",
+        qrCaption: "Сканируйте QR-код для быстрого перехода в чат КМА",
+        galleryHeading: "Фотогалерея мероприятий",
+
+        testHeading: "Экспресс-тест: Эмоциональный баланс",
+        testSubheading: "Оцените свое состояние за 1 минуту и получите рекомендацию от ALL QADAM"
+      },
+      kz: {
+        navAbout: "Біз жайында",
+        navValues: "Құндылықтар",
+        navCabinets: "Чек-лист",
+        navBase: "База",
+        navEvents: "Іс-шаралар",
+        navNqa: "НҚА",
+        navHistory: "Тарих & Чат",
+        navTest: "Тест",
+
+        motto: "Алғашқы қадамнан - сенімділікке",
+        subtitle: "Алғашқы қадам. Жаңа мүмкіндіктер. Үлкен кәсіби болашақ.",
+        btnChecklist: "Бейімделуді бастау",
+
+        aboutBadge: "Қауымдастық туралы",
+        aboutTitle: "ALL QADAM — жас мамандарға арналған білім, қолдау және мүмкіндіктер кеңістігі",
+        aboutDesc: "ALL QADAM — бұл жас мұғалімдердің білім алып, тәжірибе жинақтап, бірге дамуына арналған қолдау ортасы.",
+        missionHeading: "Біздің миссиямыз",
+        missionText: "Жас маман тек білім алып қана қоймай, қолдауға ие болатын, тәжірибе жинақтап, өз идеяларын жүзеге асыра алатын орта қалыптастыру.",
+        instaHeading: "Біз Instagram-дамыз",
+        instaText: "Біз жайында толық ақпаратты инстаграмнан да көре аласыздар",
+
+        pillar1Title: "Білім", pillar1Desc: "Пайдалы материалдар, әдістемелік құралдар мен жаңа білім.",
+        pillar2Title: "Қауымдастық", pillar2Desc: "Пікірлес жандармен танысып, тәлімгерлерден қолдау аласың.",
+        pillar3Title: "Мүмкіндіктер", pillar3Desc: "Жобаларға, байқауларға және түрлі іс-шараларға қатысасың.",
+        pillar4Title: "Идеялар", pillar4Desc: "Өз бастамаңды ұсынып, оны нақты жобаға айналдырасың.",
+        quote: "«Тек бастама. Әр қадамыңды мүмкіндігіне айналдыр. ALL QADAM — әр қадам жаңа мүмкіндік.»",
+
+        valuesMainTitle: "Құндылықтарымыз",
+        valuesSubtitle: "Біздің педагогтар қауымдастығын біріктіретін негізгі ұстанымдар",
+        val1t: "Даму", val1d: "Біз үнемі оқып, жетіліп отырамыз.",
+        val2t: "Қолдау", val2d: "Біз оқшау емес, бірге дамимыз.",
+        val3t: "Бастамашылдық", val3d: "Біз идеяларды нақты жобаларға айналдырамыз.",
+        val4t: "Ашықтық", val4d: "Біз тәжірибеміз бен білімімізді еркін бөлісеміз.",
+        val5t: "Ынтымақтастық", val5d: "Біз адамдардың басын қосып, жаңа мүмкіндіктер жасаймыз.",
+
+        directionsMainTitle: "Негізгі бағыттар",
+        directionsSubtitle: "Жас маманның кәсіби дамуын қолдау жолдары",
+        dir1t: "Кәсіби даму", dir1d: "Курстар, шеберлік сабақтары, тренингтер, вебинарлар және практикалық ресурстар.",
+        dir2t: "Тәлімгерлік", dir2d: "Тәжірибелі әріптестер мен кәсіби тәлімгерлерден қолдау алу мүмкіндіктері.",
+        dir3t: "Жобалық жұмыс", dir3d: "Жеке білім беру және әлеуметтік жобаларды әзірлеу әрі жүзеге асыру.",
+
+        cabBadge: "Алғашқы күн маршруты",
+        cabTitle: "Кабинеттер және Бейімделу Чек-лісті",
+        cabSubtitle: "Мектептегі кезеңдерді орындалуына қарай белгілеп отырыңыз",
+        thAction: "Қадам / Әрекет",
+        thResponsible: "Жауапты тұлға / Кабинет",
+        thLinks: "Пайдалы сілтемелер",
+
+        baseBadge: "Әдістемелік қор",
+        baseTitle: "Жас маманға арналған база",
+        baseDesc: "Күнделікті жұмыста қолдануға болатын практикалық материалдар мен құжат шаблондары жинағы.",
+        searchPlaceholder: "Құжаттарды іздеу...",
+
+        eventsBadge: "Мектеп өмірі",
+        eventsMainTitle: "Мектебіміздің іс-шаралары мен конкурстар тізімі",
+        eventsSubtitle: "Педагогикалық ұжымның дәстүрлі шаралары мен BINOM JAS желісінің жоспары",
+        thJasContent: "Мазмұны",
+        thJasDate: "Мерзімі",
+        thJasLocation: "Өтетін орны",
+        thJasResp: "Жауаптылар",
+
+        nqaBadge: "Заңнамалық база",
+        nqaTitle: "Нормативтік құқықтық актілер (НҚА) тізбесі",
+        nqaDesc: "Мұғалім жұмысына қажетті негізгі заңдар мен мемлекеттік тұжырымдамалар",
+        thNqaDoc: "Нормативтік құжат атауы",
+        thNqaLink: "Ресми сілтеме",
+
+        historyBadge: "Тарих пен байланыс",
+        historyTitle: "Тарихымыздың бөлшегіне айналған сәттер",
+        historyDesc: "КМА жетекшілері тобына қосылып, қауымдастықтың даму тарихына өз үлесіңізді қосыңыз",
+        kmaGroupTitle: "КМА Жетекшілері чатына қосылыңыз",
+        kmaGroupDesc: "Сперва вы должны добавится в группу с руководителями КМА. Мұнда жетекшілермен жедел байланыс пен ақпарат алмасу жүзеге асады.",
+        kmaBtnText: "WhatsApp чатқа өту",
+        qrCaption: "КМА чатына өту үшін QR-кодты сканерлеңіз",
+        galleryHeading: "Іс-шараларымыздан фотогалерея",
+
+        testHeading: "Экспресс-тест: Эмоционалдық тепе-теңдік",
+        testSubheading: "1 минут ішінде өз күйіңізді бағалап, ALL QADAM ұсынысын алыңыз"
+      }
+    };
+
+    let currentLang = 'rus';
+
+    /* ==========================================
+       STREAMING_CHUNK:Registering Checklist Data (Page 3)
+       ========================================== */
+    const checklistData = [
+      {
+        id: 1,
+        rus: "Представить документы в отдел кадров и подписать трудовой договор",
+        kz: "Кадрлар бөліміне құжаттарды тапсыру және еңбек шартына қол қою",
+        resp: "Отдел кадров / Кабинет 125",
+        linkText: null, linkUrl: null
+      },
+      {
+        id: 2,
+        rus: "Ознакомиться с приказом о приеме на работу и распределением учебной нагрузки",
+        kz: "Жұмысқа қабылдау туралы бұйрықпен және оқу жүктемесінің бөлінісімен танысу",
+        resp: "Зам. директора по УР (117)",
+        linkText: null, linkUrl: null
+      },
+      {
+        id: 3,
+        rus: "Получить ключи от закрепленного кабинета, проверить рабочее место",
+        kz: "Бекітілген кабинеттің кілтін алу, жұмыс орнын тексеру",
+        resp: "Завхоз / Зав. кабинетом",
+        linkText: null, linkUrl: null
+      },
+      {
+        id: 4,
+        rus: "Получить доступ к Kundelik.kz, рабочей почте и школьной сети Wi-Fi",
+        kz: "Kundelik.kz, жұмыс поштасы және мектеп Wi-Fi желісіне қолжетімділік алу",
+        resp: "IT-специалист / Зам. по ИТ (315/1)",
+        linkText: "Форма доступа / Өтінім формасы",
+        linkUrl: "https://forms.office.com/pages/responsepage.aspx?id=b3KmMNA8wUCeYgP6sOhQ3oUuMfaTp9NCsTf0eb6OSZ5URUo3MkRLNFZTWVNLWTVIUFJMMVZBM1lGMy4u&route=shorturl"
+      },
+      {
+        id: 5,
+        rus: "Активация СКУД-карт и кабинет камер",
+        kz: "СКУД карталарын белсендіру және камералар кабинеті",
+        resp: "Кабинет 117 ➡️ 130",
+        linkText: null, linkUrl: null
+      },
+      {
+        id: 6,
+        rus: "Получить расписание уроков и список закрепленных классов",
+        kz: "Сабақ кестесін және бекітілген сыныптар тізімін алу",
+        resp: "Зам. директора по УР",
+        linkText: "Edupage Timetable",
+        linkUrl: "https://kadyrmyrzaali.edupage.org/timetable/"
+      },
+      {
+        id: 7,
+        rus: "Ознакомиться с Правилами внутреннего трудового распорядка и ТБ",
+        kz: "Ішкі еңбек тәртібі ережелерімен және ТҚ танысу",
+        resp: "Инженер по ОТ и ТБ (Кабинет 127)",
+        linkText: null, linkUrl: null
+      },
+      {
+        id: 8,
+        rus: "Вступить в официальный педагогический чат школы (WhatsApp / Instagram)",
+        kz: "Мектептің ресми педагогикалық чатына қосылу (WhatsApp / Instagram)",
+        resp: "BINOM SCHOOL",
+        linkText: "WhatsApp Channel",
+        linkUrl: "https://whatsapp.com/channel/0029Vb85PgyLCoWw4IV2ZD1Z",
+        extraLinkText: "Instagram Binom",
+        extraLinkUrl: "https://www.instagram.com/binom.myrzaali?igsi=enM1eHV1N216bzVu"
+      }
+    ];
+
+    let checkedState = JSON.parse(localStorage.getItem('all_qadam_checklist') || '{}');
+
+    /* ==========================================
+       STREAMING_CHUNK:Registering Documents Base Data (Page 4)
+       ========================================== */
+    const docsData = [
+      {
+        id: 'ksp',
+        rusTitle: "КСП Шаблон (План урока)",
+        kzTitle: "ҚМЖ шаблоны (Сабақ жоспары)",
+        descRus: "Шаблон краткосрочного плана урока по новым стандартам.",
+        descKz: "Жаңа стандартқа сай қысқа мерзімді сабақ жоспарының шаблоны.",
+        icon: "fa-file-signature",
+        url: "https://docs.google.com/document/d/1FGe1Uo-7mqazfxBzMaZ4Q6hJBH_veajj/edit?usp=sharing"
+      },
+      {
+        id: 'vosp',
+        rusTitle: "Планы воспитательной работы",
+        kzTitle: "Тәрбие жұмысының жоспарлары",
+        descRus: "Годовые и четвертные планы воспитательных мероприятий.",
+        descKz: "Тәрбиелік шаралардың жылдық және тоқсандық жоспарлары.",
+        icon: "fa-users-line",
+        url: "https://docs.google.com/document/d/1m7WcwHK4dbFHdcq-yAhlnNh0zRWBMcDY/edit?usp=sharing"
+      },
+      {
+        id: 'zayavleniya',
+        rusTitle: "Образцы заявлений / Есептер",
+        kzTitle: "Өтініш үлгілері / Есептер",
+        descRus: "Шаблоны официальных заявлений и отчетов в администрацию.",
+        descKz: "Администрацияға жазылатын ресми өтініштер мен есептер шаблондары.",
+        icon: "fa-file-lines",
+        url: "https://docs.google.com/document/d/1niEmUcSz7Tx1TPuaggfMMioxJ-C6wrIw/edit?usp=sharing"
+      },
+      {
+        id: 'harakteristika',
+        rusTitle: "Характеристика класса",
+        kzTitle: "Сыныпқа мінездеме",
+        descRus: "Готовый шаблон составления характеристики на класс/ученика.",
+        descKz: "Сыныпқа немесе оқушыға мінездеме жазу шаблоны.",
+        icon: "fa-id-card",
+        url: "https://docs.google.com/document/d/1_DwAzhbZMFCHeBDv_KsV3KpVWHCUxArN/edit?usp=sharing"
+      },
+      {
+        id: 'protokol',
+        rusTitle: "Протокол родительского собрания",
+        kzTitle: "Ата-ана жиналысының протоколы",
+        descRus: "Бланк фиксации решений и хода родительских собраний.",
+        descKz: "Ата-аналар жиналысының шешімдері мен барысын тіркеу формасы.",
+        icon: "fa-clipboard-list",
+        url: "https://docs.google.com/document/d/1dbHpseUehkk_25d_k1QgyMZ15GgQUrkE/edit?usp=sharing"
+      },
+      {
+        id: 'spisok_klassa',
+        rusTitle: "Список класса (Личное дело/Медблок)",
+        kzTitle: "Сынып тізімі (Жеке іс / Мед блок)",
+        descRus: "Форма учёта учащихся класса для личных дел и медкабинета.",
+        descKz: "Оқушылардың жеке істері мен медкабинетке арналған есеп формасы.",
+        icon: "fa-address-book",
+        url: "https://docs.google.com/document/d/1bW6ieCGPRZ1I4bjAGS-iFrCtghQvCAsb/edit?usp=sharing"
+      },
+      {
+        id: 'uchebniki',
+        rusTitle: "Шаблон списка учебников",
+        kzTitle: "Оқулықтар тізімінің шаблоны",
+        descRus: "Ведомость выдачи и приёма библиотечных учебников.",
+        descKz: "Оқулықтарды тарату және тапсыру ведомосі.",
+        icon: "fa-book-bookmark",
+        url: "https://docs.google.com/document/d/1srStMs3et2dYj2SCK2APD4KuRi6x7Rax/edit?usp=sharing"
+      },
+      {
+        id: 'tb',
+        rusTitle: "Инструктаж по Технике Безопасности",
+        kzTitle: "Қауіпсіздік техникасы нұсқаулығы",
+        descRus: "Инструкции и журнал по ТБ для класса и кабинета.",
+        descKz: "Сынып пен кабинетке арналған ҚТ ережелері.",
+        icon: "fa-shield-halved",
+        url: "https://docs.google.com/document/d/1gFfVBIqz4W68zuOiDjwpmFkpv8FliBZh/edit?usp=sharing"
+      },
+      {
+        id: 'instruktsiya',
+        rusTitle: "Должностная инструкция классного рук.",
+        kzTitle: "Сынып жетекшісінің лауазымдық нұсқаулығы",
+        descRus: "Официальное положение о правах и обязанностях классного руководителя.",
+        descKz: "Сынып жетекшісінің құқықтары мен міндеттері туралы ресми ереже.",
+        icon: "fa-user-check",
+        url: "https://docs.google.com/document/d/14frl-dwq9VmA5Nep4DevbuDaTX3O0yka/edit?usp=sharing"
+      }
+    ];
+
+    /* ==========================================
+       STREAMING_CHUNK:Registering BINOM JAS Schedule Data (Page 5)
+       ========================================== */
+    const jasScheduleData = [
+      {
+        num: 1,
+        content: "Welcome Day - Тимбилдинг",
+        date: "Қыркүйек / Сентябрь",
+        location: "Қадыр Мырза Әлі Binom school мектеп-лицейі",
+        resp: "Ибраева А.А., Интыкпаева Б.Т."
+      },
+      {
+        num: 2,
+        content: "\"Kitap Quiz\" білім бәйгесі",
+        date: "4 қыркүйек / 4 сентября",
+        location: "Қадыр Мырза Әлі Binom school мектеп-лицейі",
+        resp: "Ибраева А.А., Раева А.Ж., Интыкпаева Б.Т."
+      },
+      {
+        num: 3,
+        content: "Сабақтағы 4K: оқушының ойлау, коммуникация және ынтымақтастық дағдыларын дамыту. Тренинг",
+        date: "Қазан / Октябрь",
+        location: "Әлихан Бөкейхан Binom school мектеп-лицейі",
+        resp: "Рахимбекова А.Р."
+      },
+      {
+        num: 4,
+        content: "«Жас маманға арналған педагогикалық лайфхактар» шеберлік сабақтары",
+        date: "Қараша / Ноябрь",
+        location: "Әбіш Кекілбаев Binom school мектеп-лицейі",
+        resp: "Ибрайбекова А.Н., Халелова Ш.Д."
+      },
+      {
+        num: 5,
+        content: "«Педагогикалық стартап». Педагогикалық жобалар",
+        date: "Желтоқсан / Декабрь",
+        location: "Ыбырай Алтынсарин Binom school мектеп-лицейі",
+        resp: "Оргкомитет BINOM JAS"
+      },
+      {
+        num: 6,
+        content: "«PLC: бірлескен ізденіс – сапалы нәтиже» PLC / тәжірибе алмасу",
+        date: "Қаңтар / Январь",
+        location: "А.Байтұрсынұлы ат. Binom school мектеп-лицейі",
+        resp: "Кудабаев Н.А., Капан З."
+      },
+      {
+        num: 7,
+        content: "«Жас ұстаздың кәсіби хикаялары». «Күлкілі, бірақ шындық» StandUp",
+        date: "Ақпан / Февраль",
+        location: "Қадыр Мырза Әлі Binom school мектеп-лицейі",
+        resp: "Ибраева А.А., Интыкпаева Б.Т."
+      },
+      {
+        num: 8,
+        content: "«Нетворкинг: жаңа мүмкіндіктер алаңы» Кәсіби нетворкинг",
+        date: "Наурыз / Март",
+        location: "Әбіш Кекілбаев Binom school мектеп-лицейі",
+        resp: "Ибрайбекова А.Н., Халелова Ш.Д."
+      },
+      {
+        num: 9,
+        content: "«Level UP: тәжірибеден нәтижеге» Форум",
+        date: "Сәуір / Апрель",
+        location: "Қадыр Мырза Әлі Binom school мектеп-лицейі",
+        resp: "Ибраева А.А., Интыкпаева Б.Т."
+      }
+    ];
+
+    /* ==========================================
+       STREAMING_CHUNK:Registering Regulatory Legal Acts Data (Page 6)
+       ========================================== */
+    const nqaData = [
+      {
+        num: 1,
+        title: "«Қазақстан Республикасының Конституциясы» Конституция 2026 жылы 15 наурызда республикалық референдумда қабылданды",
+        link: "https://adilet.zan.kz/kaz/docs/K2600000000"
+      },
+      {
+        num: 2,
+        title: "«Білім туралы» Қазақстан Республикасының 2007 жылғы 27 шілдедегі № 319 Заңы",
+        link: "https://adilet.zan.kz/kaz/docs/Z070000319_"
+      },
+      {
+        num: 3,
+        title: "«Жасанды интеллект туралы» Қазақстан Республикасының Заңы 2025 жылғы 17 қарашадағы № 230-VIII ҚРЗ",
+        link: "https://adilet.zan.kz/kaz/docs/Z2500000230"
+      },
+      {
+        num: 4,
+        title: "«Педагог мәртебесі туралы» Қазақстан Республикасының Заңы 2019 жылғы 27 желтоқсандағы № 293-VІ ҚРЗ",
+        link: "https://adilet.zan.kz/kaz/docs/Z1900000293"
+      },
+      {
+        num: 5,
+        title: "Қазақстан Республикасы Президентінің 2026 жылғы 12 мамырдағы «Қазақстан Республикасының орта білім беру жүйесіне жасанды интеллектіні ендіру жөніндегі шаралар туралы» Жарлығы",
+        link: "https://surl.li/wzhifu"
+      },
+      {
+        num: 6,
+        title: "««Келешек мектептері» білім беру саласындағы пилоттық ұлттық жобасын бекіту туралы» Қазақстан Республикасы Үкіметінің 2022 жылғы 30 қарашадағы № 963 қаулысы",
+        link: "https://adilet.zan.kz/kaz/docs/P2200000963"
+      },
+      {
+        num: 7,
+        title: "«Қазақстан Республикасында мектепке дейінгі, орта, техникалық және кәсіптік білім беруді дамытудың 2023 – 2029 жылдарға арналған тұжырымдамасын бекіту туралы» ҚР Үкіметінің 2023 жылғы 28 наурыздағы № 249 қаулысы",
+        link: "https://adilet.zan.kz/kaz/docs/P2300000249"
+      },
+      {
+        num: 8,
+        title: "«2026 – 2030 жылдарға арналған «Қазақстан балалары» тұжырымдамасын бекіту туралы» Қазақстан Республикасы Үкіметінің 2026 жылғы 29 қаңтардағы № 56 қаулысы",
+        link: "https://adilet.zan.kz/kaz/docs/P2600000056"
+      },
+      {
+        num: 9,
+        title: "«Балаларды зорлық-зомбылықтан қорғау, суицидтің алдын алу және олардың құқықтары мен саламаттығын қамтамасыз ету жөніндегі 2023 – 2025 жылдарға арналған кешенді жоспарды бекіту туралы» ҚР Үкіметінің № 748 қаулысы",
+        link: "https://adilet.zan.kz/kaz/docs/P2300000748"
+      },
+      {
+        num: 10,
+        title: "«Қазақстан Республикасындағы инклюзивті саясаттың 2025 – 2030 жылдарға арналған тұжырымдамасын бекіту туралы» Қазақстан Республикасы Үкіметінің 2024 жылғы 30 желтоқсандағы № 1143 қаулысы",
+        link: "https://adilet.zan.kz/kaz/docs/P2400001143"
+      },
+      {
+        num: 11,
+        title: "«Қазақстан Республикасында шахматты дамытудың 2023 – 2027 жылдарға арналған кешенді жоспарын бекіту туралы» Қазақстан Республикасы Үкіметінің 2023 жылғы 14 шілдедегі № 576 қаулысы",
+        link: "https://adilet.zan.kz/kaz/docs/P2300000576"
+      }
+    ];
+
+    /* ==========================================
+       STREAMING_CHUNK:Registering Quiz Data (Page 8)
+       ========================================== */
+    const quizQuestions = [
+      {
+        qRus: "Как вы чувствуете себя утром перед началом рабочего дня?",
+        qKz: "Жұмыс күні басталмай тұрып таңертең өзіңізді қалай сезінесіз?",
+        options: [
+          { textRus: "Энергично и готов к новым задачам", textKz: "Қуаттымын, жаңа тапсырмаларға дайынмын", score: 3 },
+          { textRus: "Немного устал, но справляюсь", textKz: "Шаршаңқымын, бірақ жұмысымды жасаймын", score: 2 },
+          { textRus: "Чувствую опустошение и тревогу", textKz: "Мазасыздану мен шаршау сезінемін", score: 1 }
+        ]
+      },
+      {
+        qRus: "Есть ли у вас свободное время для отдыха и хобби после уроков?",
+        qKz: "Сабақтан кейін демалыс пен хоббиге уақытыңыз қала ма?",
+        options: [
+          { textRus: "Да, соблюдаю баланс работы и жизни", textKz: "Иә, жұмыс пен демалыс тепе-теңдігін сақтаймын", score: 3 },
+          { textRus: "Иногда, но часто беру тетради домой", textKz: "Кейде, бірақ жиі жұмысты үйге алып кетемін", score: 2 },
+          { textRus: "Практически нет, все время занято работой", textKz: "Мүлдем жоқ, барлық уақытым жұмыста", score: 1 }
+        ]
+      }
+    ];
+
+    let quizAnswers = {};
+
+    /* ==========================================
+       STREAMING_CHUNK:Executing Language Switching Engine...
+       ========================================== */
+    function setLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+
+      // Update Active Button Style
+      document.getElementById('lang-kz-btn').className = lang === 'kz' 
+        ? "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-gradient-purple-gold text-white shadow" 
+        : "px-3.5 py-1.5 rounded-full text-xs font-bold text-gray-400 hover:text-white transition-all duration-300";
+      
+      document.getElementById('lang-rus-btn').className = lang === 'rus' 
+        ? "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 bg-gradient-purple-gold text-white shadow" 
+        : "px-3.5 py-1.5 rounded-full text-xs font-bold text-gray-400 hover:text-white transition-all duration-300";
+
+      // Translate Nav
+      document.getElementById('nav-about').innerText = t.navAbout;
+      document.getElementById('nav-values').innerText = t.navValues;
+      document.getElementById('nav-cabinets').innerText = t.navCabinets;
+      document.getElementById('nav-base').innerText = t.navBase;
+      document.getElementById('nav-events').innerText = t.navEvents;
+      document.getElementById('nav-nqa').innerText = t.navNqa;
+      document.getElementById('nav-history').innerText = t.navHistory;
+      document.getElementById('nav-test').innerText = t.navTest;
+
+      // Translate Hero
+      document.getElementById('hero-motto').innerText = t.motto;
+      document.getElementById('hero-subtitle').innerText = t.subtitle;
+      document.getElementById('hero-btn-checklist').innerText = t.btnChecklist;
+
+      // Translate Page 1
+      document.getElementById('about-badge').innerText = t.aboutBadge;
+      document.getElementById('about-title').innerText = t.aboutTitle;
+      document.getElementById('about-desc').innerText = t.aboutDesc;
+      document.getElementById('mission-heading').innerText = t.missionHeading;
+      document.getElementById('mission-text').innerText = t.missionText;
+      document.getElementById('insta-heading').innerText = t.instaHeading;
+      document.getElementById('insta-text').innerText = t.instaText;
+
+      document.getElementById('pillar1-title').innerText = t.pillar1Title;
+      document.getElementById('pillar1-desc').innerText = t.pillar1Desc;
+      document.getElementById('pillar2-title').innerText = t.pillar2Title;
+      document.getElementById('pillar2-desc').innerText = t.pillar2Desc;
+      document.getElementById('pillar3-title').innerText = t.pillar3Title;
+      document.getElementById('pillar3-desc').innerText = t.pillar3Desc;
+      document.getElementById('pillar4-title').innerText = t.pillar4Title;
+      document.getElementById('pillar4-desc').innerText = t.pillar4Desc;
+      document.getElementById('callout-quote').innerText = t.quote;
+
+      // Translate Page 2
+      document.getElementById('values-main-title').innerText = t.valuesMainTitle;
+      document.getElementById('values-subtitle').innerText = t.valuesSubtitle;
+      document.getElementById('val1-t').innerText = t.val1t; document.getElementById('val1-d').innerText = t.val1d;
+      document.getElementById('val2-t').innerText = t.val2t; document.getElementById('val2-d').innerText = t.val2d;
+      document.getElementById('val3-t').innerText = t.val3t; document.getElementById('val3-d').innerText = t.val3d;
+      document.getElementById('val4-t').innerText = t.val4t; document.getElementById('val4-d').innerText = t.val4d;
+      document.getElementById('val5-t').innerText = t.val5t; document.getElementById('val5-d').innerText = t.val5d;
+
+      document.getElementById('directions-main-title').innerText = t.directionsMainTitle;
+      document.getElementById('directions-subtitle').innerText = t.directionsSubtitle;
+      document.getElementById('dir1-t').innerText = t.dir1t; document.getElementById('dir1-d').innerText = t.dir1d;
+      document.getElementById('dir2-t').innerText = t.dir2t; document.getElementById('dir2-d').innerText = t.dir2d;
+      document.getElementById('dir3-t').innerText = t.dir3t; document.getElementById('dir3-d').innerText = t.dir3d;
+
+      // Translate Page 3
+      document.getElementById('cab-badge').innerText = t.cabBadge;
+      document.getElementById('cab-title').innerText = t.cabTitle;
+      document.getElementById('cab-subtitle').innerText = t.cabSubtitle;
+      document.getElementById('th-action').innerText = t.thAction;
+      document.getElementById('th-responsible').innerText = t.thResponsible;
+      document.getElementById('th-links').innerText = t.thLinks;
+
+      // Translate Page 4
+      document.getElementById('base-badge').innerText = t.baseBadge;
+      document.getElementById('base-title').innerText = t.baseTitle;
+      document.getElementById('base-desc').innerText = t.baseDesc;
+      document.getElementById('doc-search-input').placeholder = t.searchPlaceholder;
+
+      // Translate Page 5
+      document.getElementById('events-badge').innerText = t.eventsBadge;
+      document.getElementById('events-main-title').innerText = t.eventsMainTitle;
+      document.getElementById('events-subtitle').innerText = t.eventsSubtitle;
+      document.getElementById('th-jas-content').innerText = t.thJasContent;
+      document.getElementById('th-jas-date').innerText = t.thJasDate;
+      document.getElementById('th-jas-location').innerText = t.thJasLocation;
+      document.getElementById('th-jas-resp').innerText = t.thJasResp;
+
+      // Translate Page 6
+      document.getElementById('nqa-badge').innerText = t.nqaBadge;
+      document.getElementById('nqa-title').innerText = t.nqaTitle;
+      document.getElementById('nqa-desc').innerText = t.nqaDesc;
+      document.getElementById('th-nqa-doc').innerText = t.thNqaDoc;
+      document.getElementById('th-nqa-link').innerText = t.thNqaLink;
+
+      // Translate Page 7
+      document.getElementById('history-badge').innerText = t.historyBadge;
+      document.getElementById('history-title').innerText = t.historyTitle;
+      document.getElementById('history-desc').innerText = t.historyDesc;
+      document.getElementById('kma-group-title').innerText = t.kmaGroupTitle;
+      document.getElementById('kma-group-desc').innerText = t.kmaGroupDesc;
+      document.getElementById('kma-btn-text').innerText = t.kmaBtnText;
+      document.getElementById('qr-caption').innerText = t.qrCaption;
+      document.getElementById('gallery-heading').innerText = t.galleryHeading;
+
+      // Translate Page 8
+      document.getElementById('test-heading').innerText = t.testHeading;
+      document.getElementById('test-subheading').innerText = t.testSubheading;
+
+      // Re-render Dynamic Table Views
+      renderChecklist();
+      renderDocs();
+      renderJasSchedule();
+      renderNqaTable();
+      renderQuiz();
+    }
+
+    /* ==========================================
+       STREAMING_CHUNK:Rendering Checklist Table (Page 3)
+       ========================================== */
+    function renderChecklist() {
+      const tbody = document.getElementById('checklist-tbody');
+      tbody.innerHTML = '';
+
+      checklistData.forEach(item => {
+        const isChecked = !!checkedState[item.id];
+        const tr = document.createElement('tr');
+        tr.className = `hover:bg-brandPurple/5 transition-colors ${isChecked ? 'bg-brandPurple/10 opacity-75' : ''}`;
+
+        let linksHtml = '-';
+        if (item.linkUrl) {
+          linksHtml = `<a href="${item.linkUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-brandGold hover:underline font-semibold bg-brandGold/10 px-2.5 py-1 rounded-lg border border-brandGold/30">
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> ${item.linkText}
+          </a>`;
+          if (item.extraLinkUrl) {
+            linksHtml += `<a href="${item.extraLinkUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-purple-300 hover:underline font-semibold bg-purple-900/30 px-2.5 py-1 rounded-lg border border-purple-500/30 ml-2">
+              <i class="fa-brands fa-instagram text-[10px]"></i> ${item.extraLinkText}
+            </a>`;
+          }
+        }
+
+        tr.innerHTML = `
+          <td class="p-4 text-center">
+            <input type="checkbox" onchange="toggleCheck(${item.id})" ${isChecked ? 'checked' : ''} class="w-5 h-5 accent-brandPurple rounded cursor-pointer">
+          </td>
+          <td class="p-4 font-mono text-gray-400 font-bold">${item.id}</td>
+          <td class="p-4 font-medium ${isChecked ? 'line-through text-gray-500' : 'text-white'}">
+            ${currentLang === 'rus' ? item.rus : item.kz}
+          </td>
+          <td class="p-4 text-gray-300">
+            <span class="inline-block px-2.5 py-1 rounded-md bg-darkCard border border-darkBorder font-mono text-xs text-purple-300">
+              ${item.resp}
+            </span>
+          </td>
+          <td class="p-4">${linksHtml}</td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      updateProgress();
+    }
+
+    function toggleCheck(id) {
+      checkedState[id] = !checkedState[id];
+      localStorage.setItem('all_qadam_checklist', JSON.stringify(checkedState));
+      renderChecklist();
+    }
+
+    function updateProgress() {
+      const total = checklistData.length;
+      const count = Object.values(checkedState).filter(Boolean).length;
+      const percent = Math.round((count / total) * 100);
+
+      document.getElementById('progress-text').innerText = `${count} из ${total} (${percent}%)`;
+      document.getElementById('progress-bar').style.width = `${percent}%`;
+    }
+
+    /* ==========================================
+       STREAMING_CHUNK:Rendering Base Documents Grid (Page 4)
+       ========================================== */
+    function renderDocs(filterTerm = '') {
+      const grid = document.getElementById('docs-grid');
+      grid.innerHTML = '';
+
+      const filtered = docsData.filter(d => {
+        const title = currentLang === 'rus' ? d.rusTitle : d.kzTitle;
+        return title.toLowerCase().includes(filterTerm.toLowerCase());
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center text-gray-400 py-8">Ничего не найдено</div>`;
+        return;
+      }
+
+      filtered.forEach(doc => {
+        const card = document.createElement('div');
+        card.className = "glass-card p-6 rounded-2xl flex flex-col justify-between group border border-white/10 hover:border-brandGold/40 transition-all";
+        
+        const title = currentLang === 'rus' ? doc.rusTitle : doc.kzTitle;
+        const desc = currentLang === 'rus' ? doc.descRus : doc.descKz;
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandPurple/30 to-brandGold/20 flex items-center justify-center text-xl text-brandGold group-hover:scale-110 transition-transform">
+                <i class="fa-solid ${doc.icon}"></i>
+              </div>
+              <span class="text-[10px] font-mono uppercase bg-darkCard px-2 py-1 rounded text-gray-400 border border-darkBorder">
+                Google Doc
+              </span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2 group-hover:text-brandGold transition-colors">${title}</h4>
+            <p class="text-xs text-gray-400 leading-relaxed mb-6">${desc}</p>
+          </div>
+
+          <a href="${doc.url}" target="_blank" class="w-full py-2.5 rounded-xl bg-darkCard hover:bg-gradient-purple-gold text-center text-xs font-bold text-white border border-brandGold/30 transition-all duration-300 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-arrow-down-to-bracket"></i> Скачать / Открыть шаблон
+          </a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterDocs() {
+      const term = document.getElementById('doc-search-input').value;
+      renderDocs(term);
+    }
+
+    /* ==========================================
+       STREAMING_CHUNK:Rendering BINOM JAS Calendar Table (Page 5)
+       ========================================== */
+    function renderJasSchedule() {
+      const tbody = document.getElementById('jas-tbody');
+      tbody.innerHTML = '';
+
+      jasScheduleData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-brandPurple/5 transition-colors";
+        tr.innerHTML = `
+          <td class="p-4 text-center font-mono font-bold text-brandGold">${row.num}</td>
+          <td class="p-4 font-semibold text-white">${row.content}</td>
+          <td class="p-4 text-xs font-mono text-purple-300">${row.date}</td>
+          <td class="p-4 text-xs text-gray-300">${row.location}</td>
+          <td class="p-4 text-xs font-medium text-brandGoldHover">${row.resp}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* ==========================================
+       STREAMING_CHUNK:Rendering NQA Legal Table (Page 6)
+       ========================================== */
+    function renderNqaTable() {
+      const tbody = document.getElementById('nqa-tbody');
+      tbody.innerHTML = '';
+
+      nqaData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-brandPurple/5 transition-colors";
+        tr.innerHTML = `
+          <td class="p-4 text-center font-mono font-bold text-brandGold">${row.num}</td>
+          <td class="p-4 font-medium text-white">${row.title}</td>
+          <td class="p-4 text-center">
+            <a href="${row.link}" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-brandPurple/20 hover:bg-brandPurple text-purple-200 hover:text-white text-xs font-bold border border-brandPurple/40 transition-all">
+              <i class="fa-solid fa-external-link text-[10px]"></i> Adilet ZAN
+            </a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* ==========================================
+       STREAMING_CHUNK:Rendering Anti-Burnout Quiz (Page 8)
+       ========================================== */
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
+      container.innerHTML = '';
+
+      quizQuestions.forEach((q, qIndex) => {
+        const qBox = document.createElement('div');
+        qBox.className = "space-y-3";
+        
+        const questionText = currentLang === 'rus' ? q.qRus : q.qKz;
+        qBox.innerHTML = `<div class="font-semibold text-white text-sm sm:text-base">${qIndex + 1}. ${questionText}</div>`;
+
+        const optsDiv = document.createElement('div');
+        optsDiv.className = "grid grid-cols-1 sm:grid-cols-3 gap-3";
+
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          const isSelected = quizAnswers[qIndex] === opt.score;
+          btn.className = `p-3 rounded-xl text-xs text-left transition-all border ${
+            isSelected 
+              ? 'bg-brandPurple text-white border-brandPurple font-bold' 
+              : 'bg-darkCard text-gray-300 border-darkBorder hover:border-brandGold/40'
+          }`;
+          btn.innerText = currentLang === 'rus' ? opt.textRus : opt.textKz;
+          btn.onclick = () => {
+            quizAnswers[qIndex] = opt.score;
+            renderQuiz();
+            checkQuizCompletion();
+          };
+          optsDiv.appendChild(btn);
+        });
+
+        qBox.appendChild(optsDiv);
+        container.appendChild(qBox);
+      });
+    }
+
+    function checkQuizCompletion() {
+      if (Object.keys(quizAnswers).length === quizQuestions.length) {
+        const totalScore = Object.values(quizAnswers).reduce((a, b) => a + b, 0);
+        const resultBox = document.getElementById('quiz-result');
+        resultBox.classList.remove('hidden');
+
+        if (totalScore >= 5) {
+          document.getElementById('result-icon').innerText = "🚀";
+          document.getElementById('result-title').innerText = currentLang === 'rus' ? "Отличный эмоциональный тонус!" : "Тамаша эмоционалдық күй!";
+          document.getElementById('result-desc').innerText = currentLang === 'rus' 
+            ? "Вы отлично справляетесь со стартом в профессии! Участвуйте в проектах ALL QADAM и делитесь энергией с коллегами." 
+            : "Сіз кәсіби бастаманы өте жақсы меңгерудесіз! ALL QADAM жобаларына қатысып, энергияңызбен бөлісіңіз.";
+        } else {
+          document.getElementById('result-icon').innerText = "🌿";
+          document.getElementById('result-title').innerText = currentLang === 'rus' ? "Требуется подзарядка и отдых" : "Демалыс пен қолдау қажет";
+          document.getElementById('result-desc').innerText = currentLang === 'rus' 
+            ? "Не забывайте делать паузы и обращаться к наставникам ALL QADAM за советом. Возьмите готовые шаблоны документов из базы, чтобы сэкономить время!" 
+            : "Үзіліс жасауды және ALL QADAM тәлімгерлерінен кеңес алуды ұмытпаңыз. Уақыт үнемдеу үшін базадағы дайын құжат шаблондарын қолданыңыз!";
+        }
+      }
+    }
+
+    function resetQuiz() {
+      quizAnswers = {};
+      document.getElementById('quiz-result').classList.add('hidden');
+      renderQuiz();
+    }
+
+    /* ==========================================
+       STREAMING_CHUNK:Initializing Interactive Canvas Animated Logo...
+       ========================================== */
+    const canvas = document.getElementById('logoCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let walkerX = 0;
+    let walkerSpeed = 1.8;
+    let particles = [];
+    const textToDraw = "ALL QADAM";
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.originX = x;
+        this.originY = y;
+        this.color = color;
+        this.vx = (Math.random() - 0.5) * 3;
+        this.vy = (Math.random() - 0.8) * 3;
+        this.size = Math.random() * 2 + 1.5;
+        this.alpha = 1;
+        this.isBroken = false;
+      }
+
+      update(walkerXPos) {
+        // Shatter if walker has passed this X coordinate
+        if (this.x < walkerXPos && !this.isBroken && Math.random() < 0.25) {
+          this.isBroken = true;
+        }
+
+        if (this.isBroken) {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.alpha -= 0.02;
+          if (this.alpha <= 0) {
+            // Re-form ahead of the walker
+            this.x = this.originX;
+            this.y = this.originY;
+            this.vx = (Math.random() - 0.5) * 3;
+            this.vy = (Math.random() - 0.8) * 3;
+            this.alpha = 1;
+            this.isBroken = false;
+          }
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function initLogoParticles() {
+      particles = [];
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCanvas.width = canvas.width;
+      tempCanvas.height = canvas.height;
+
+      const fontSize = Math.min(canvas.width / 6.5, 75);
+      tempCtx.font = `900 ${fontSize}px Manrope, sans-serif`;
+      tempCtx.fillStyle = '#DFBD69';
+      tempCtx.textAlign = 'center';
+      tempCtx.textBaseline = 'middle';
+      tempCtx.fillText(textToDraw, tempCanvas.width / 2, tempCanvas.height / 2);
+
+      const imgData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+      const step = 4;
+
+      for (let y = 0; y < tempCanvas.height; y += step) {
+        for (let x = 0; x < tempCanvas.width; x += step) {
+          const index = (y * tempCanvas.width + x) * 4;
+          if (imgData.data[index + 3] > 128) {
+            const color = (x % 3 === 0) ? '#D500FF' : ((x % 2 === 0) ? '#DFBD69' : '#FFFFFF');
+            particles.push(new Particle(x, y, color));
+          }
+        }
+      }
+    }
+
+    setTimeout(initLogoParticles, 250);
+
+    // Draw Walking Silhouette
+    function drawWalker(x, y) {
+      ctx.save();
+      ctx.translate(x, y);
+
+      const time = Date.now() * 0.008;
+      const legAngle = Math.sin(time) * 0.55;
+      const armAngle = Math.cos(time) * 0.55;
+
+      const grad = ctx.createLinearGradient(-15, -40, 15, 40);
+      grad.addColorStop(0, '#D500FF');
+      grad.addColorStop(1, '#DFBD69');
+
+      ctx.strokeStyle = grad;
+      ctx.fillStyle = grad;
+      ctx.lineWidth = 4;
+      ctx.lineCap = 'round';
+
+      // Head
+      ctx.beginPath();
+      ctx.arc(0, -32, 7, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Torso
+      ctx.beginPath();
+      ctx.moveTo(0, -25);
+      ctx.lineTo(0, 0);
+      ctx.stroke();
+
+      // Legs
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.sin(legAngle) * 16, 22);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.sin(-legAngle) * 16, 22);
+      ctx.stroke();
+
+      // Arms
+      ctx.beginPath();
+      ctx.moveTo(0, -20);
+      ctx.lineTo(Math.sin(armAngle) * 14, -6);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(0, -20);
+      ctx.lineTo(Math.sin(-armAngle) * 14, -6);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function animateLogo() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(p => {
+        p.update(walkerX);
+        p.draw();
+      });
+
+      walkerX += walkerSpeed;
+      if (walkerX > canvas.width + 40) {
+        walkerX = -40;
+      }
+
+      const walkerY = canvas.height / 2 + 10;
+      drawWalker(walkerX, walkerY);
+
+      requestAnimationFrame(animateLogo);
+    }
+
+    canvas.addEventListener('click', () => {
+      walkerSpeed = walkerSpeed === 1.8 ? 4.5 : 1.8;
+    });
+
+    // Generate KMA WhatsApp QR Code
+    function generateQrCode() {
+      const qrDiv = document.getElementById('qrcode');
+      qrDiv.innerHTML = '';
+      new QRCode(qrDiv, {
+        text: "https://chat.whatsapp.com/CtinnmRHQ1eHTuy3nUhzlh?s=cl&p=i&mlu=4",
+        width: 130,
+        height: 130,
+        colorDark : "#151226",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+    }
+
+    /* ==========================================
+       START ON WINDOW LOAD
+       ========================================== */
+    window.onload = function() {
+      setLanguage('rus');
+      animateLogo();
+      generateQrCode();
+    };
+  </script>
+</body>
+</html>
